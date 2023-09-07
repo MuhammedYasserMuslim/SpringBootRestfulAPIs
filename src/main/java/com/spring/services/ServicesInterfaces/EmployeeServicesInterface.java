@@ -1,5 +1,6 @@
 package com.spring.services.ServicesInterfaces;
 
+import com.spring.model.Department;
 import com.spring.model.Employee;
 import com.spring.repository.EmployeeRepository;
 
@@ -24,6 +25,7 @@ public interface EmployeeServicesInterface {
     public void updateEmployee(Employee employee);
 
     public void deleteEmployeeById(Long id);
+    public List<Employee> getByDepartmentId(Long id);
 
 
 }

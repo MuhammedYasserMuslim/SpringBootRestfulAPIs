@@ -35,6 +35,12 @@ public class EmployeeController {
         return employeeServices.getEmployeeById(id);
     }
 
+    @GetMapping("/emplo")
+    //http://localhost:8080/emp/emplo?id=
+    public List<Employee> getEmployeeByDepartment(@RequestParam Long id) {
+        return employeeServices.getByDepartmentId(id);
+    }
+
     @GetMapping("/employeee")
     //http://localhost:8080/emp/employeee?name=
     public List<Employee> getEmployeeByName(@RequestParam String name) {
@@ -55,8 +61,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/employees")
-    //http://localhost:8080/emp/employees?id=
-    public Employee updateEmployee(@RequestBody Employee employee, @RequestParam Long id) {
+    //http://localhost:8080/emp/employees
+    public Employee updateEmployee(@RequestBody Employee employee) {
         employeeServices.updateEmployee(employee);
         return employee;
     }

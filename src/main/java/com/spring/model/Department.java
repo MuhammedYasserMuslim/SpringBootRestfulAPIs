@@ -6,13 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Entity
+@Table
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Employee {
+public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,17 +24,13 @@ public class Employee {
 
     private String name;
 
-    private int age;
-
-    private double salary;
-
-    @ManyToOne
-    @JoinColumn(name = "department_id",referencedColumnName = "id")
+    @OneToMany(mappedBy = "department")
     @JsonIgnore
-    private Department department;
+    private List<Employee> employees;
 
-    @OneToOne
-    @JoinColumn(name="user_id")
-    @JsonIgnore
-    private User user;
+
+
+
+
+
 }

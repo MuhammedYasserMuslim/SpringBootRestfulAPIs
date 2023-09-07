@@ -1,22 +1,17 @@
 package com.spring.repository;
 
 import com.spring.model.Department;
-import com.spring.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
+import java.util.Objects;
 
 @RepositoryRestResource
-public interface EmployeeRepository extends JpaRepository<Employee,Long> {
+public interface DepartmentRepository extends JpaRepository<Department,Long> {
 
-    List<Employee> findByName(String name);
-
-    List<Employee>findByAge(int age);
-
-
-    List<Employee> findByDepartmentId(Long id);
-
+    List <Department> findByName(String name);
 
 
 

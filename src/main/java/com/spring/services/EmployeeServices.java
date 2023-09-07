@@ -1,5 +1,6 @@
 package com.spring.services;
 
+import com.spring.model.Department;
 import com.spring.model.Employee;
 import com.spring.repository.EmployeeRepository;
 import com.spring.services.ServicesInterfaces.EmployeeServicesInterface;
@@ -47,6 +48,11 @@ public class EmployeeServices implements EmployeeServicesInterface {
     }
 
     @Override
+    public List<Employee> getByDepartmentId(Long id) {
+        return employeeRepository.findByDepartmentId(id);
+    }
+
+    @Override
     public void updateEmployee(Employee employee) {
         employeeRepository.save(employee);
 
@@ -56,4 +62,7 @@ public class EmployeeServices implements EmployeeServicesInterface {
     public void deleteEmployeeById(Long id) {
         employeeRepository.deleteById(id);
     }
+
+
+
 }
