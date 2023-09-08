@@ -1,6 +1,7 @@
 package com.spring.services;
 
 import com.spring.model.Player;
+import com.spring.model.projection.PlayerProjection;
 import com.spring.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,12 @@ public class PlayerServices {
     public List<Player> findNameAndPositionJPQL(Long id){
         return playerRepository.findNameAndPositionJPQL(id);
     }
+    public List<PlayerProjection> getNameAngNumber(){
+        return playerRepository.getNameAngNumber();
+    }
+    public void deleteP(Long id){
+        playerRepository.deleteP(id);
+    }
+
+
 }

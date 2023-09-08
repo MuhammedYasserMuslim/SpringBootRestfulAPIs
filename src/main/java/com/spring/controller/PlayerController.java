@@ -2,12 +2,10 @@ package com.spring.controller;
 
 
 import com.spring.model.Player;
+import com.spring.model.projection.PlayerProjection;
 import com.spring.services.PlayerServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,14 @@ public class PlayerController {
     @GetMapping("/ppp")
     public List<Player> findNameAndPositionJPQL(@RequestParam Long id) {
         return playerServices.findNameAndPositionJPQL(id);
+    }
+    @GetMapping("/pppp")
+    public List<PlayerProjection> getNameAngNumber(){
+      return   playerServices.getNameAngNumber();
+    }
+
+    @DeleteMapping("/pp")
+    public void deleteP( @RequestParam Long id){
+        playerServices.deleteP(id);
     }
 }
